@@ -23,7 +23,7 @@ test("Header has the correct brand name", async done => {
   done();
 });
 
-test("Clicking login starts OAuth flow", async done => {
+test("Clicking login starts the OAuth flow", async done => {
   await page.click(".right a");
 
   const url = await page.url();

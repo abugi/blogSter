@@ -26,5 +26,5 @@ before_script:
   - mongo blog_ci --eval 'db.createUser({user: "abugi", pwd: "jankara",roles:["readWrite"]})'
 script:
   - nohup npm run start &
-  - sleep 7
+  - sleep 3
   - npm run test

@@ -21,6 +21,9 @@ cache:
 install:
   - npm install
   - npm run build
+before_script:
+  - sleep 15
+  - mongo blog_ci --eval 'db.createUser({user: "abugi", pwd: "jankara",roles:["readWrite"]})'
 script:
   - nohup npm run start &
   - sleep 7

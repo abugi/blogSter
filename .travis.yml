@@ -2,13 +2,9 @@ language: node_js
 node_js:
   - "12"
 dist: trusty
-sudo: required
-addons:
-  chrome: stable
-  hostname: localhost
 services:
   - mongodb
-  - redis-server
+  - redis
 env:
   - NODE_ENV=ci
   - PORT=3000
@@ -22,5 +18,5 @@ install:
 before_script:
   - nohup npm run dev &
 script:
-  - sleep 5
+  - sleep 3
   - npm run test

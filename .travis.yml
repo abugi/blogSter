@@ -6,8 +6,6 @@ sudo: required
 addons:
   chrome: stable
   hostname: localhost
-before_install:
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 services:
   - mongodb
   - redis-server
@@ -22,9 +20,7 @@ install:
   - npm install
   - npm run build
 before_script:
-  - sleep 15
-  - mongo blog_ci --eval 'db.createUser({user: "abugi", pwd: "jankara",roles:["readWrite"]})'
-script:
   - nohup npm run start &
+script:
   - sleep 5
   - npm run test

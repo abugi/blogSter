@@ -20,7 +20,7 @@ install:
   - npm install
   - npm run build
 before_script:
-  - nohup npm run start &
+  - nohup npm run dev &
 script:
   - sleep 5
   - npm run test

@@ -2,6 +2,12 @@ language: node_js
 node_js:
   - "12"
 dist: trusty
+sudo: required
+addons:
+  chrome: stable
+  hostname: localhost
+before_install:
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 services:
   - mongodb
   - redis-server
@@ -15,8 +21,6 @@ cache:
 install:
   - npm install
   - npm run build
-before_script:
-  - sleep 15
 script:
   - nohup npm run start &
   - sleep 7
